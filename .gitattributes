@@ -1,0 +1,2 @@
+SDCARD/*.img filter=lfs diff=lfs merge=lfs -text
+SDCARD/*.img.gz filter=lfs diff=lfs merge=lfs -text
