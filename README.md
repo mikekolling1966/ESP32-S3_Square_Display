@@ -4,6 +4,35 @@ Feb 2026
 ESP32 customisable display using data from SignalK. 
 ------------------------------
 
+SD CARD — CRITICAL INFORMATION
+------------------------------
+
+The display requires a FAT32 SD card formatted with an **MBR (not GPT) partition table**.
+Cards formatted by Windows or modern tools often use GPT and will NOT be read by the display.
+
+A ready-to-flash disk image is stored in this repo (via Git LFS):
+
+    SDCARD/waveshare_square_sdcard.img
+
+This image contains the correct MBR/FAT32 layout plus all assets and screen configs.
+Flash it to a new card with:
+
+    sudo dd if=waveshare_square_sdcard.img of=/dev/rdiskX bs=1m
+
+Replace `/dev/rdiskX` with your SD card device (use `diskutil list` on Mac to find it).
+
+> **WARNING:** If a card mounts as `GUID_partition_scheme` / `Microsoft Basic Data` on Mac,
+> it is GPT and the display will ignore it. Use `diskutil partitionDisk /dev/diskX MBR "MS-DOS FAT32" UNTITLED 100%`
+> to reformat it as MBR before copying files.
+
+Individual asset files are also stored in:
+- `SDCARD/assets/` — background `.bin` images and icon PNGs
+- `SDCARD/config/` — screen config files and SignalK paths
+
+OneDrive backup: `Projects/ESP32-S3_Square_Display_SDCARD/`
+
+------------------------------
+
 It features:
 - Customisable background images,
 - Custom icons, 
