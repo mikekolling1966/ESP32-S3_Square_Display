@@ -1,0 +1,10 @@
+environment.wind.angleApparentDegrees
+environment.wind.speedApparentKnots
+sensors.port.oilpressure.bar
+sensors.starboard.oilpressure.bar
+sensors.port.watertemp.celsius
+sensors.starboard.watertemp.celsius
+environment.depth.belowTransducer
+sensors.starboard.watertemp.celsius
+
+
